@@ -1,13 +1,25 @@
 {
-  "name": "champ-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vibe-ui",
+  "version": "0.1.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vibe-ui.umd.cjs",
+  "module": "./dist/vibe-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vibe-ui.js",
+      "require": "./dist/vibe-ui.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -rf dist",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -25,7 +37,6 @@
     "globals": "^16.3.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "^7.1.2"
   }
 }

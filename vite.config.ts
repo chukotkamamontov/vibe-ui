@@ -1,34 +1,33 @@
-// vite.config.ts
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
-import dts from 'vite-plugin-dts';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { resolve } from 'path'
 
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      insertTypesEntry: true,
-      copyDtsFiles: true,
-    }),
-  ],
+  plugins: [react()],
   build: {
+    // Настройки точки входа и выходных файлов библиотеки
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MyUILibrary',
-      formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format === 'es' ? 'esm' : 'cjs'}.js`,
+      entry: resolve(__dirname, 'lib/main.ts'),
+      name: 'vibe-ui',
+      // the proper extensions will be added
+      fileName: 'vibe-ui',
     },
+    // Настройки сборщика Rollup
+    // Выносим react-зависимости из бандла
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
+        // Provide global variables to use in the UMD build
+        // for externalized deps
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
+          'react-dom': 'ReactDom',
+          'react/jsx-runtime': 'react/jsx-runtime'
         },
       },
     },
-    emptyOutDir: true,
-    outDir: 'dist',
   },
-});
+})
