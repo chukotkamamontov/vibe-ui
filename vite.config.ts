@@ -1,10 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import dts from 'vite-plugin-dts'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true, // entry point для типов
+      include: ['lib/**/*'], // Папку с исходниками
+      tsconfigPath: './tsconfig.app.json', // tsconfig
+    })
+  ],
   build: {
     // Настройки точки входа и выходных файлов библиотеки
     lib: {
