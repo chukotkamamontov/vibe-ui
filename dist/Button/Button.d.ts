@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
-};
+}
 export declare const Button: React.FC<ButtonProps>;
 export {};

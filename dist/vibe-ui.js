@@ -1,5 +1,5 @@
-import { jsx as o } from "react/jsx-runtime";
-const n = ({ children: t }) => /* @__PURE__ */ o("button", { children: t });
+import { jsx as r } from "react/jsx-runtime";
+const u = ({ children: t, ...o }) => /* @__PURE__ */ r("button", { ...o, children: t });
 export {
-  n as Button
+  u as Button
 };

@@ -1,12 +1,12 @@
 import type { ReactNode } from "react"
 
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode
 }
  
-export const Button: React.FC<ButtonProps> = ({ children } ): ReactNode => {
+export const Button: React.FC<ButtonProps> = ({ children, ...props } ) => {
 
   return (
-    <button>{children}</button>
+    <button {...props}>{children}</button>
   )
 }
