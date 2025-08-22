@@ -1,12 +1,14 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
+import styles from "./Button.module.scss";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode
+  variant?: "primary" | "secondary";
+  children?: ReactNode;
 }
  
-export const Button: React.FC<ButtonProps> = ({ children, ...props } ) => {
+export const Button: React.FC<ButtonProps> = ({ children, variant, ...props } ) => {
 
   return (
-    <button {...props}>{children}</button>
+    <button className={`${styles.button} ${styles[`button--${variant}`]}`} {...props}>{children}</button>
   )
-}
+};

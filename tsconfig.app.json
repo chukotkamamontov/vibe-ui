@@ -7,7 +7,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "paths": {
-      "vibe-ui": ["./lib/main.ts"]
+      "champ-ui": ["./lib/index.ts"]
     },
 
     /* Bundler mode */
@@ -26,5 +26,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "lib", "global.d.ts"]
 }

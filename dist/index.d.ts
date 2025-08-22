@@ -1,2 +1,1 @@
-export * from './main'
-export {}
+export { Button } from './Button/Button';

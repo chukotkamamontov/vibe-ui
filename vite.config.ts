@@ -1,28 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
-import dts from 'vite-plugin-dts'
+// vite.config.ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import dts from 'vite-plugin-dts';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     dts({
-      insertTypesEntry: true, // entry point для типов
-      include: ['lib/**/*'], // Папку с исходниками
-      tsconfigPath: './tsconfig.app.json', // tsconfig
+      insertTypesEntry: true,
+      include: ['lib/**/*'],
+      tsconfigPath: './tsconfig.app.json',
     })
   ],
   build: {
-    // Настройки точки входа и выходных файлов библиотеки
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
-      name: 'vibe-ui',
-      // the proper extensions will be added
-      fileName: 'vibe-ui',
+      entry: resolve(__dirname, 'lib/index.ts'),
+      name: 'champ-ui',
+      fileName: 'champ-ui',
     },
-    // Настройки сборщика Rollup
-    // Выносим react-зависимости из бандла
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
@@ -37,5 +34,7 @@ export default defineConfig({
         },
       },
     },
+    emptyOutDir: true,
+    cssCodeSplit: true
   },
 })

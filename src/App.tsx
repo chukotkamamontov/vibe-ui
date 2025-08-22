@@ -1,18 +1,19 @@
-import { Button } from 'vibe-ui'; 
+import { Button } from 'champ-ui'; 
+import 'champ-ui/index.css';
 
 function App() {
 
   const handleButtonClick = () => {
-    console.log('[click]')
+    console.log('[click]');
   }
 
   return (
     <>
       <div>
-        <Button onClick={handleButtonClick}>Click me</Button>
+        <Button variant='primary' onClick={handleButtonClick}>Click me</Button>
       </div>
     </>
   )
-} 
+};
 
-export default App
+export default App;
