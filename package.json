@@ -11,6 +11,7 @@
   "engine": "22.18",
   "main": "./dist/champ-ui.umd.cjs",
   "module": "./dist/champ-ui.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
