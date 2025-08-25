@@ -32,6 +32,8 @@ export default defineConfig({
       // into your library
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
+        interop: 'auto',
+        exports: 'named',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
@@ -39,8 +41,10 @@ export default defineConfig({
           'react-dom': 'ReactDom',
           'react/jsx-runtime': 'react/jsx-runtime'
         },
+        chunkFileNames: 'chunks/[name]-[hash].js'
       },
     },
+    minify: false,
     emptyOutDir: true,
     cssCodeSplit: true
   },
