@@ -1,5 +1,4 @@
-import { Button } from 'champ-ui'; 
-import 'champ-ui/index.css';
+import { Button } from 'champ-ui';
 
 function App() {
 

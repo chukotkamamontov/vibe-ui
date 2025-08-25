@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("react/jsx-runtime"),r="_button_14ndq_1",t={button:r,"button--primary":"_button--primary_14ndq_8","button--secondary":"_button--secondary_14ndq_15"},s=({children:n,variant:o,...u})=>e.jsx("button",{className:`${t.button} ${t[`button--${o}`]}`,...u,children:n});exports.Button=s;

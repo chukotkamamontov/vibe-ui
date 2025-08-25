@@ -14,11 +14,18 @@ export default defineConfig({
       tsconfigPath: './tsconfig.app.json',
     })
   ],
+  resolve: {
+    alias: {
+      'champ-ui': resolve(__dirname, 'lib/index.ts')
+    }
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/index.ts'),
       name: 'champ-ui',
-      fileName: 'champ-ui',
+      formats: ['es', 'cjs'],
+      fileName: (format) => `champ-ui.${format === 'es' ? 'esm.js' : 'cjs'}`,
+      // outDir: 'dist'
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
